@@ -118,7 +118,7 @@ frstore_run_query <- function(collection_path, id_token, filters,
         "Authorization" = paste("Bearer", id_token)
       ) |>
       httr2::req_body_raw(queryBody, "application/json") |>
-      httr2::req_url(paste0(base_url, path_url)) |>
+      httr2::req_url(paste0(base_url, "/", path_url)) |>
       httr2::req_perform() |>
       httr2::resp_body_json(),
     error = frstore_error_handler
