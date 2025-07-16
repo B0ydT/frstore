@@ -49,9 +49,9 @@ frstore_run_query <- function(collection_path, id_token, filters,
   collection_id <- utils::tail(strsplit(collection_path, "/")[[1]], 1)
 
   if (partial_path == collection_id) {
-    path_url <- paste0("projects/", project_id, "/databases/", URLencode("(default)", reserved = TRUE), "/documents", ":runQuery")
+    path_url <- paste0("projects/", project_id, "/databases/(default)/documents", ":runQuery")
   } else {
-    path_url <- paste0("projects/", project_id, "/databases/", URLencode("(default)", reserved = TRUE), "/documents/", partial_path, ":runQuery")
+    path_url <- paste0("projects/", project_id, "/databases/(default)/documents/", partial_path, ":runQuery")
   }
 
   # Constructing the select clause if selected_fields is provided
